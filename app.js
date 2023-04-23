@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use(cors({
-    origin: 'https://bereal-app.netlify.app/',
+    origin: 'https://bereal-app.netlify.app',
     credentials: true,
 }));
 
