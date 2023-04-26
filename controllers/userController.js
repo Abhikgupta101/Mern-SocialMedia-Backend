@@ -114,7 +114,13 @@ const accountLogin = async (req, res) => {
 const logout = async (req, res) => {
 
     try {
-        res.status(200).cookie("token", null, { expires: new Date(Date.now()), httpOnly: true }).json({
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            expires: new Date(Date.now())
+        };
+        res.status(200).cookie("token", null, cookieOptions).json({
             success: true,
             message: 'Logged Out'
         })
